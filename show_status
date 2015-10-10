@@ -6,7 +6,6 @@
 # @author   Mike Pearce <mike@mikepearce.net>
 # @since    18/05/2010
 
-# from https://github.com/MikePearce/Git-Status
 
 # Grab some libraries
 import sys
@@ -121,18 +120,16 @@ if __name__ == "__main__":
                 branch = out[j+10:k];
                 branchColor = bcolors.WARNING;
 
-        if branch == 'master':
-            branchColor = bcolors.OKGREEN
+                if branch == 'master':
+                    branchColor = bcolors.OKGREEN
 
-        branch = "[ " + branchColor + branch.ljust(15) + bcolors.ENDC + " ]"
+                branch = "[ " + branchColor + branch.ljust(15) + bcolors.ENDC + " ]"
 
-        if -1 == out.find('nothing'):
-            result = bcolors.FAIL + "Changes" + bcolors.ENDC
-        elif -1 != out.find('untracked'):
-            result = bcolors.FAIL + "Untracked files" + bcolors.ENDC
-        else:
-
-
+                if -1 == out.find('nothing'):
+                    result = bcolors.FAIL + "Changes" + bcolors.ENDC
+                elif -1 != out.find('untracked'):
+                    result = bcolors.FAIL + "Untracked files" + bcolors.ENDC
+                else:
                     result = bcolors.OKGREEN + "No Changes" + bcolors.ENDC
 
                     # Pull from the remote
